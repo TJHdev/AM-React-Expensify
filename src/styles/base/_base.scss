@@ -1,5 +1,6 @@
 html {
   font-size: 62.5%; // converts 1rem into 10px which is easy for fast calcs
+  box-sizing: border-box;
 }
 
 body {
