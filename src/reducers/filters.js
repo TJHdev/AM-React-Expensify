@@ -38,4 +38,4 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
   }
 };
 
-export default filtersReducer
+export default filtersReducer;
