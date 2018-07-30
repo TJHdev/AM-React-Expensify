@@ -27,8 +27,14 @@ store.dispatch(addExpense({ description: 'Water bill' }));
 store.dispatch(addExpense({ description: 'Gas bill' }));
 store.dispatch(setTextFilter('gas'));
 
+setTimeout(() => {
+  store.dispatch(setTextFilter('water'));
+}, 2000)
+
 const jsx = (
-  <AppRouter />
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 )
 
 ReactDOM.render(jsx, document.getElementById('app'));
