@@ -25,11 +25,9 @@ console.log(store.getState());
 
 store.dispatch(addExpense({ description: 'Water bill', amount: 9999, createdAt: 1984 }));
 store.dispatch(addExpense({ description: 'Gas bill', amount: 4, createdAt: 1988 }));
-store.dispatch(setTextFilter('gas'));
+store.dispatch(addExpense({ description: 'Rent', amount: 1000, createdAt: 2018 }));
+// store.dispatch(setTextFilter('gas'));
 
-setTimeout(() => {
-  store.dispatch(setTextFilter('water'));
-}, 2000)
 
 const jsx = (
   <Provider store={store}>
