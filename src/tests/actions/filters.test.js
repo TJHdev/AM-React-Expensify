@@ -36,7 +36,7 @@ test('should setup set start date action object with provided data', () => {
   expect(action).toEqual({
     type: 'SET_START_DATE',
     startDate: (moment(1500000))
-  })
+  });
 });
 
 test('should setup set start date action object with default data', () => {
@@ -44,7 +44,7 @@ test('should setup set start date action object with default data', () => {
   expect(action).toEqual({
     type: 'SET_START_DATE',
     startDate: 0
-  })
+  });
 });
 
 test('should setup set end date action object with provided data', () => {
@@ -52,7 +52,7 @@ test('should setup set end date action object with provided data', () => {
   expect(action).toEqual({
     type: 'SET_END_DATE',
     endDate: moment(1500000)
-  })
+  });
 });
 
 test('should setup set end date action object with default data', () => {
@@ -60,5 +60,5 @@ test('should setup set end date action object with default data', () => {
   expect(action).toEqual({
     type: 'SET_END_DATE',
     endDate: 0
-  })
+  });
 });
