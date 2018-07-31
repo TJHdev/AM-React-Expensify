@@ -1,4 +1,3 @@
-
 // Expenses Reducer
 
 const expensesReducerDefaultState = [];
