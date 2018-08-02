@@ -15,8 +15,6 @@ export const ExpenseList = (props) => (
         ))
       )
     }
-    
-    
   </div>
 );
 
