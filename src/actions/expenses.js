@@ -11,7 +11,7 @@ import database from '../firebase/firebase.js'
 // component dispatches object (?)
 // function runs (has the ability to dispatch other actions and do whatever it wants)
 
-const addExpense = (expense) => ({
+export const addExpense = (expense) => ({
   type: 'ADD_EXPENSE',
   expense: expense
 })
@@ -36,15 +36,39 @@ export const startAddExpense = (expenseData = {}) => {
   };
 };
 
-const removeExpense = ({ id } = {}) => ({
+export const removeExpense = ({ id } = {}) => ({
   type: 'REMOVE_EXPENSE',
   id: id
-}) 
+});
 
-const editExpense = (id, updates) => ({
+export const editExpense = (id, updates) => ({
   type: 'EDIT_EXPENSE',
   id: id,
   updates
-})
+});
 
-export { addExpense, removeExpense, editExpense }
+export const setExpenses = (expenses) => ({
+  type: 'SET_EXPENSES',
+  expenses: expenses
+});
+
+export const startSetExpenses = (expensesData = []) => {
+  return (dispatch) => {
+    return database.ref('expenses').once('value').then((snapshot) => {
+      const expenses = [];
+   
+      snapshot.forEach((childSnapshot) => {
+        expenses.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        })
+      })
+   
+      dispatch(setExpenses(expenses));
+    });
+  }
+};
+
+
+
+ 
