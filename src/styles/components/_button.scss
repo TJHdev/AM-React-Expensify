@@ -24,3 +24,11 @@
     background: lighten($dark-blue, 10%);
   }
 }
+
+.button--secondary {
+  background-color: $button-grey;
+
+  &:hover {
+    background-color: lighten($button-grey, 10%);
+  }
+}
