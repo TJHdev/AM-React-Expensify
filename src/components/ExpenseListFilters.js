@@ -27,7 +27,7 @@ export class ExpenseListFilters extends React.Component { // this allows us to a
   render() {
     return (
       <div>
-        <input type="text" defaultValue={this.props.filters.text} onChange={this.onTextChange} />
+        <input type="text" defaultValue={this.props.filters.text} onChange={this.onTextChange} placeholder={'Search expenses'} />
         <select
           value={this.props.filters.sortBy}
           onChange={this.onSortChange}
