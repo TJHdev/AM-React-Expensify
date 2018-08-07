@@ -3,16 +3,16 @@ import { shallow } from 'enzyme';
 import { EditExpensePage } from '../../components/EditExpensePage';
 import expenses from '../fixtures/expenses';
 
-let startEditExpense, startRemoveExpense, history, wrapper;
+let startEditExpense, handleOpenRemoveModalSpy, history, wrapper;
 
 beforeEach(() => {
   startEditExpense = jest.fn();
-  startRemoveExpense = jest.fn();
+  handleOpenRemoveModalSpy = jest.fn();
   history = { push: jest.fn() };
   wrapper = shallow(
     <EditExpensePage 
       expense={expenses[1]} 
-      startRemoveExpense={startRemoveExpense} 
+      handleOpenRemoveModal={handleOpenRemoveModalSpy} 
       startEditExpense={startEditExpense} 
       history={history}/>
   );
@@ -28,8 +28,10 @@ test('should handle startEditExpense', () => {
   expect(startEditExpense).toHaveBeenLastCalledWith(expenses[1].id, expenses[1]);
 });
 
-test('should handle removeExpense', () => {
-  wrapper.find('button').prop('onClick')({ id: expenses[1].id });
-  expect(history.push).toHaveBeenLastCalledWith('/');
-  expect(startRemoveExpense).toHaveBeenLastCalledWith({ id: expenses[1].id });
+test('should open the remove modal through change of state', () => {
+  expect(wrapper.state('confirmRemoveExpense')).toBe(null);
+  wrapper.find('button').prop('onClick')();
+  expect(wrapper.state('confirmRemoveExpense')).toBe(true);
 });
+
+

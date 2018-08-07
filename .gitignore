@@ -2,3 +2,4 @@
 public/dist/
 .env.development
 .env.test
+.env.backup
